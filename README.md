@@ -15,7 +15,7 @@ A modern **Weather Android application** built using **Jetpack Compose** and **M
 * 📍 Location-based weather
 * 🔄 Reactive UI updates
 * ⏳ Loading and error states
-* 🌐 Weather data from REST API
+* 🌐  Satatic Weather data
 * 💉 Dependency Injection using Dagger Hilt
 * 🔁 State management using StateFlow
 * 🎨 Modern UI using Jetpack Compose
@@ -31,9 +31,9 @@ UI (Jetpack Compose)
         ↓
     Repository
         ↓
-   Retrofit API
-        ↓
-   Weather API
+  
+        
+   Weather Model 
 ```
 
 ### MVVM Components
@@ -69,7 +69,7 @@ UI (Jetpack Compose)
 | Dagger Hilt       | Dependency Injection     |
 | StateFlow         | State Management         |
 | Kotlin Coroutines | Asynchronous Programming |
-| Retrofit          | API Communication        |
+|  
 | Gson              | JSON Parsing             |
 | Material 3        | UI Components            |
 
@@ -79,22 +79,26 @@ UI (Jetpack Compose)
 com.example.weatherapp
 │
 ├── data
-│   ├── remote
-│   │   ├── WeatherApi.kt
-│   │   └── WeatherResponse.kt
+│   ├── model
+│   │   ├── WeatherInfo.kt
+│   │  
 │   │
 │   └── repository
 │       └── WeatherRepository.kt
+        └── WeatherRepoImp.kt
 │
 ├── di
-│   └── NetworkModule.kt
+│   └── RepositoryModule.kt
+
 │
-├── presentation
+├── presentation(ScreenS)
 │   ├── WeatherScreen.kt
 │   ├── WeatherViewModel.kt
 │   └── WeatherUiState.kt
 │
 └── MainActivity.kt
+└── WeatherApplication.kt
+
 ```
 
 ## 🔄 State Management
@@ -123,8 +127,8 @@ This allows the UI to automatically react when the weather state changes.
 
 Hilt provides dependencies such as:
 
-* Retrofit
-* Weather API service
+
+
 * Repository
 * ViewModel dependencies
 
@@ -140,10 +144,9 @@ Compose UI
 ViewModel
     ↓
 Repository
-    ↓
-Retrofit
-    ↓
-Weather API
+  
+   
+
 ```
 
 > Add your API provider and API documentation link here if you want to make the project publicly reproducible.
@@ -179,7 +182,6 @@ This project helped me practice:
 * Dagger Hilt dependency injection
 * StateFlow and reactive state management
 * Kotlin Coroutines
-* Retrofit networking
 * Repository pattern
 * UI state handling
 * Loading and error handling
